@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Author>Mike Rissen</Author>
+      <Description>Creates Seed method to create Buymoria database</Description>
+      <Shortcut>Buymoria</Shortcut>
+      <Title>BuyMoria</Title>
+    </Header>
+    <Snippet>
+      <Code Language="VB"><![CDATA[            context.Employees.AddOrUpdate(Function(emp) emp.ID,
+            New Employee() With {.FirstName = "Michael", .LastName = "Tucker", .Salary = 18.0, .Position = "Manager"},
+            New Employee() With {.FirstName = "Morgan", .LastName = "Grimes", .Salary = 12.0, .Position = "Asst. Manager"},
+            New Employee() With {.FirstName = "Emmett", .LastName = "Milbarge", .Salary = 14.0, .Position = "Asst. Manager", .TerminationDate = DateTime.Parse("1/31/2012")},
+            New Employee() With {.FirstName = "Harry", .LastName = "Tang", .Salary = 12.0, .Position = "Asst. Manager", .TerminationDate = DateTime.Parse("1/31/2011")},
+            New Employee() With {.FirstName = "Diane", .LastName = "Beckman", .Salary = 22.0, .Position = "Manager"},
+            New Employee() With {.FirstName = "John", .LastName = "Casey", .Salary = 10.0, .Position = "Green Shirt"},
+            New Employee() With {.FirstName = "Fernando", .Salary = 9.0, .Position = "Green Shirt"},
+            New Employee() With {.FirstName = "Bunny", .Salary = 9.0, .Position = "Green Shirt"},
+            New Employee() With {.FirstName = "Chuck", .LastName = "Bartowski", .Salary = 13.0, .Position = "Nerd Herd"},
+            New Employee() With {.FirstName = "Jeffrey", .LastName = "Barnes", .Salary = 11.25, .Position = "Nerd Herd, Apple"},
+            New Employee() With {.FirstName = "Lester", .LastName = "Patel", .Salary = 11.25, .Position = "Nerd Herd, Apple"},
+            New Employee() With {.FirstName = "Skip", .LastName = "Johnson", .Salary = 12.0, .Position = "Nerd Herd"},
+            New Employee() With {.FirstName = "Anna", .LastName = "Wu", .Salary = 9.0, .Position = "Nerd Herd", .TerminationDate = DateTime.Parse("1/31/2012")},
+            New Employee() With {.FirstName = "Hannah", .LastName = "", .Salary = 8.0, .Position = "Nerd Herd", .TerminationDate = DateTime.Parse("1/31/2012")},
+            New Employee() With {.FirstName = "Greta", .LastName = "", .Salary = 8.0, .Position = "Green Shirt", .TerminationDate = DateTime.Parse("1/31/2012")},
+            New Employee() With {.FirstName = "Rick", .LastName = "Noble", .Salary = 8.0, .Position = "Green Shirt"},
+            New Employee() With {.FirstName = "Victoria", .LastName = "Dunwoody", .Salary = 8.0, .Position = "Green Shirt"},
+            New Employee() With {.FirstName = "Moses", .LastName = "Finkelstein", .Salary = 180.0, .Position = "Founder"},
+            New Employee() With {.FirstName = "Porter", .LastName = "Bauer", .Salary = 8.0, .Position = "Green Shirt", .TerminationDate = DateTime.Parse("1/31/2010")},
+            New Employee() With {.FirstName = "Marvin", .LastName = "Gadsby", .Salary = 8.0, .Position = "Green Shirt", .TerminationDate = DateTime.Parse("1/31/2010")},
+            New Employee() With {.FirstName = "Cecil", .LastName = "Goldenberg", .Salary = 8.0, .Position = "Green Shirt", .TerminationDate = DateTime.Parse("1/31/2010")},
+            New Employee() With {.FirstName = "Christina", .LastName = "James", .Salary = 8.0, .Position = "Green Shirt", .TerminationDate = DateTime.Parse("1/31/2010")},
+            New Employee() With {.FirstName = "Ruben", .LastName = "Mango", .Salary = 8.0, .Position = "Green Shirt", .TerminationDate = DateTime.Parse("1/31/2010")},
+            New Employee() With {.FirstName = "Sal", .LastName = "Sawaya", .Salary = 8.0, .Position = "Green Shirt", .TerminationDate = DateTime.Parse("1/31/2010")},
+            New Employee() With {.FirstName = "Skye", .LastName = "Stoinitz", .Salary = 8.0, .Position = "Green Shirt", .TerminationDate = DateTime.Parse("1/31/2010")},
+            New Employee() With {.FirstName = "Leticia", .LastName = "Williams", .Salary = 8.0, .Position = "Green Shirt", .TerminationDate = DateTime.Parse("1/31/2010")},
+            New Employee() With {.FirstName = "Sarah", .LastName = "Yang", .Salary = 8.0, .Position = "Green Shirt", .TerminationDate = DateTime.Parse("1/31/2010")})
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

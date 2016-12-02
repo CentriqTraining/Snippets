@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Singleton</Title>
+			<Shortcut>Singlton</Shortcut>
+			<Description>Code snippet for Singleton Design Pattern class</Description>
+			<Author>Microsoft Corporation</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>name</ID>
+					<ToolTip>Class name</ToolTip>
+					<Default>MyClass</Default>
+				</Literal>
+				<Literal>
+					<ID>currentpropertyname</ID>
+					<ToolTip>Name for the Instance property (usually current or instance)</ToolTip>
+					<Default>Current</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[    public class $name$
+    {
+        private static $name$ _Instance;
+        private $name$()
+        {
+
+        }
+        public static $name$ $currentpropertyname$
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new $name$();
+                }
+
+                return _Instance;
+            }
+        }
+    
+		$selection$$end$		
+
+	}]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

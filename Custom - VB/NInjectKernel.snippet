@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Author>Mike Rissen</Author>
+      <Description>Creates a default Ikernel exposes as a singleton class</Description>
+      <Shortcut>NInjectkernel</Shortcut>
+      <Title>NInjectKernel</Title>
+    </Header>
+    <Snippet>
+      <Code Language="VB"><![CDATA[    Public Class NInjectKernel
+        Private Shared _Instance As NInjectKernel
+        Private Sub New()
+        End Sub
+        Public Shared ReadOnly Property Current As NInjectKernel
+            Get
+                If _Instance Is Nothing Then
+                    _Instance = New NInjectKernel()
+                End If
+                Return _Instance
+            End Get
+        End Property
+        Public Function GetKernel() As IKernel
+            Return New StandardKernel(New ValidationConfigurationModule())
+        End Function
+    End Class
+End Module
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

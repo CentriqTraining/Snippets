@@ -1,0 +1,43 @@
+﻿<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>EmpSmall</Title>
+			<Shortcut>EmpSmall</Shortcut>
+			<Description>Code snippet for Employee Class</Description>
+			<Author>Mike Rissen</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="csharp">
+        <![CDATA[
+        public class Employee
+        {
+            private int _ID;
+            private string _FirstName;
+            private string _LastName;
+
+            public int ID
+            {
+                get { return _ID; }
+                set { _ID = value; }
+            }
+
+            public string FirstName
+            {
+                get { return _FirstName; }
+                set { _FirstName = value; }
+            }
+
+            public string LastName
+            {
+                get { return _LastName; }
+                set { _LastName = value; }
+            }
+        }]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

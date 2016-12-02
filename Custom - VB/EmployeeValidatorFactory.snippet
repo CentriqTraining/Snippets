@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>ValidatorFactory</Shortcut>
+      <Title>EmployeeValidatorFactory</Title>
+      <short
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <Default>DefaultEmployeeValidator</Default>
+          <ID>Name</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="VB"><![CDATA[Module EmployeeValidatorFactory
+    Public Function GetValidator() As Validator(Of Employee)
+        Return New $Name$()
+    End Function
+End Module]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

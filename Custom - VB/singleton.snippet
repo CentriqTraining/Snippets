@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Author>Mike Rissen</Author>
+      <Description>Creates a singleton class</Description>
+      <Title>Singleton</Title>
+      <Shortcut>singleton</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="true">
+          <Default>SomeMethod</Default>
+          <ID>SomeMethod</ID>
+        </Literal>
+        <Literal Editable="true">
+          <Default>SomereturnValue
+
+        End Function</Default>
+          <ID>SomereturnValue</ID>
+        </Literal>
+        <Literal Editable="true">
+          <Default>YourClassNameGoesHere</Default>
+          <ID>Singleton</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="VB"><![CDATA[    Public Class $Singleton$
+        Private Shared _Instance As $Singleton$
+        Private Sub New()
+
+        End Sub
+
+        Public Shared ReadOnly Property Current As $Singleton$
+            Get
+                If _Instance Is Nothing Then
+                    _Instance = New $Singleton$()
+                End If
+                Return _Instance
+            End Get
+        End Property
+
+        Public Function $SomeMethod$() As $SomereturnValue$
+    End Class
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

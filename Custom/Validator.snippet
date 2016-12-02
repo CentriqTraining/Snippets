@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Validator Class</Title>
+			<Shortcut>Validator</Shortcut>
+			<Description>Code snippet to create Validator Base Class</Description>
+			<Author>Microsoft Corporation</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="csharp"><![CDATA[
+    public abstract class Validator<T>
+    {
+        private Dictionary<string, string> _Errors;
+
+        public Validator()
+        {
+            _Errors = new Dictionary<string, string>();
+        }
+
+        protected void AddError(string propertyName, string errorMessage)
+        {
+            if (!_Errors.ContainsKey(propertyName))
+            {
+                _Errors.Add(propertyName, errorMessage);
+            }
+        }
+
+        protected void RemoveError(string propertyName)
+        {
+            if (_Errors.ContainsKey(propertyName))
+            {
+                _Errors.Remove(propertyName);
+            }
+        }
+
+        public string this[string propertyName]
+        {
+            get
+            {
+                if (_Errors.ContainsKey(propertyName))
+                    return _Errors[propertyName];
+                else
+                    return string.Empty;
+            }
+        }
+
+        public abstract void ValidateProperty(string propertyName, T obj);
+    }
+			]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

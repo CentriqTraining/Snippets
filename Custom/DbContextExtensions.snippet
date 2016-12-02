@@ -1,0 +1,39 @@
+﻿<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>DbContext Extensions</Title>
+			<Shortcut>DbExtensions</Shortcut>
+			<Description>Code snippet for Advanced validation logic in Code First EF</Description>
+			<Author>Mike Rissen</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="csharp">
+        <![CDATA[
+	    public static class DbContextExtensions
+	    {
+	        public static void EnableIDataErrorInfoValidation(this DbContext ctx, DbEntityEntry entityEntry, DbEntityValidationResult results)
+	        {
+	            if (entityEntry.Entity is IDataErrorInfo)
+	            {
+	                var entry = entityEntry.Entity as IDataErrorInfo;
+	                var props = entityEntry.CurrentValues.PropertyNames;
+	                props.All(prop =>
+	                {
+	                    if (entry[prop] != string.Empty)
+	                    {
+	                        results.ValidationErrors.Add(new DbValidationError(prop, entry[prop]));
+	                    }
+	                    return true;
+	                });
+	            }
+	        }
+	    }
+	]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

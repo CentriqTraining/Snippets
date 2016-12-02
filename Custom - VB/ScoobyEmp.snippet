@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Author>Mike Rissen</Author>
+      <Description>Creates a simple list for demos</Description>
+      <Shortcut>Scooby</Shortcut>
+      <Title>Scooby</Title>
+    </Header>
+    <Snippet>
+      <Code Language="VB"><![CDATA[        Dim _emps As List(Of Employee)
+        _emps = New List(Of Employee)() From
+            {
+              new Employee() with { .FirstName = "Scooby", .LastName = "Doo", .ID = 1 },
+                new Employee() with { .FirstName = "Scrappy", .LastName = "Doo", .ID=2 },
+                new Employee() with { .FirstName = "Shaggy", .LastName = "Rogers", .ID=3 },
+                new Employee() with { .FirstName = "Fred", .LastName = "Jones", .ID=4 },
+                new Employee() with { .FirstName = "Daphne", .LastName = "Blake",.ID=5 },
+                new Employee() with { .FirstName = "Velma", .LastName = "Dinkley",.ID=6 },
+                }
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

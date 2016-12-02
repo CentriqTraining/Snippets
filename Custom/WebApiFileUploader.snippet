@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Web Api File Upload Class</Title>
+      <Shortcut>fileupload</Shortcut>
+      <Description>Code snippet to create Web Api class that supports uploading files to the remote server</Description>
+      <Author>Mike Rissen</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>name</ID>
+          <ToolTip>Upload ClassName</ToolTip>
+          <Default>DocumentServicesController</Default>
+        </Literal>
+        <Literal>
+          <ID>serverpath</ID>
+          <ToolTip>Folder where files will be uploaded to</ToolTip>
+          <Default>StagingDocuments</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[public class $name$: ApiController
+                {
+                    private string rootfolder;
+                    public $name$()
+                    {
+                        rootfolder = HttpContext.Current.Server.MapPath("~/$serverpath$");
+                    }
+
+                    // POST: api/DocumentServices
+                    public HttpResponseMessage Post([FromUri]string fileName)
+                    {
+                        HttpResponseMessage resp = new HttpResponseMessage();
+
+                        Task<Stream> task = this.Request.Content.ReadAsStreamAsync();
+                        task.Wait();
+                        Stream requestStream = task.Result;
+                        if (task.Result.Length == 0)
+                        {
+                            resp.StatusCode = HttpStatusCode.BadRequest;
+                            return resp;
+                        }
+                        try
+                        {
+                            Stream fileStream = File.Create(Path.Combine(rootfolder, fileName));
+                            requestStream.CopyTo(fileStream);
+                            fileStream.Flush();
+                            fileStream.Close();
+                            requestStream.Close();
+                            resp.StatusCode = HttpStatusCode.OK;
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine(ex.Message);
+                            resp.StatusCode = HttpStatusCode.InternalServerError;
+                        }
+                        return resp;
+                    }
+                }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Author>Mike Rissen</Author>
+      <Description>Adds additional information to the Employee class that supports DI from NInject</Description>
+      <Shortcut>EmpNinject</Shortcut>
+      <Title>EmpNInject</Title>
+    </Header>
+    <Snippet>
+      <Code Language="VB"><![CDATA[        Private _Val As Validator(Of Employee)
+
+        Public Sub New()
+            NInjectKernel.Current.GetKernel().Inject(this)
+        End Sub
+
+        [Inject]
+        Public WriteOnly Property Val As Validator(Of Employee)
+            Set(value As Validator(Of Employee))
+                _Val = value
+            End Set
+        End Property
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

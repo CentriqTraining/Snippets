@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>default validator</Title>
+			<Shortcut>DefaultValidator</Shortcut>
+			<Description>Code snippet to create Defaul Validator Class</Description>
+			<Author>Microsoft Corporation</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="csharp"><![CDATA[
+    public class DefaultEmployeeValidator : Validator<Employee>
+    {
+        public override void ValidateProperty(string propertyName, Employee obj)
+        {
+            RemoveError(propertyName);
+            switch (propertyName)
+            {
+                case "FirstName":
+                    ValidateFirstName(obj);
+                    break;
+                case "LastName":
+                    ValidateLastName(obj);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void ValidateLastName(Employee obj)
+        {
+            if (obj != null && obj.LastName.Length > 10)
+            {
+                AddError("LastName", "Last name is too long, yo");
+            }
+        }
+
+        private void ValidateFirstName(Employee obj)
+        {
+            if (obj != null && obj.FirstName.Length > 10)
+            {
+                AddError("FirstName", "First name is too long, yo");
+            }
+        }
+    }
+
+			]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

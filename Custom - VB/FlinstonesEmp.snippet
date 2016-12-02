@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Author>Mike Rissen</Author>
+      <Description>Creates a simple list for demos</Description>
+      <Shortcut>Flinstones</Shortcut>
+      <Title>Flinstones</Title>
+    </Header>
+    <Snippet>
+      <Code Language="VB"><![CDATA[        Dim _emps As List(Of Employee)
+        _emps = New List(Of Employee)() From
+            {
+                New Employee() With {.FirstName = "Fred", .LastName = "Flinstone", .Id = 2},
+                New Employee() With {.FirstName = "Wilma", .LastName = "Flinstone", .Id = 3},
+                New Employee() With {.FirstName = "Barney", .LastName = "Rubble", .Id = 4},
+                New Employee() With {.FirstName = "Betty", .LastName = "Rubble", .Id = 5}
+                }
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

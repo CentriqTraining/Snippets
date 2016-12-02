@@ -1,0 +1,49 @@
+﻿<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Old Database Code</Title>
+			<Shortcut>OldDB</Shortcut>
+			<Description>Code snippet for ADO.NET old school</Description>
+			<Author>Mike Rissen</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="csharp">
+        <![CDATA[
+            string ConnectionString = "Some connection String";
+            using (var Con = new SqlConnection())
+            {
+                Con.ConnectionString = ConnectionString;
+                using (var cmd = Con.CreateCommand())
+                {
+                    var sql = "Select * from employees";
+                    cmd.CommandText = sql;
+                    SqlDataReader rdr = cmd.ExecuteReader();
+                    List<Employee> Employees = new List<Employee>();
+
+                    while (rdr.Read())
+                    {
+                        //  process each result row in turn
+                        Employee NewEmp = new Employee();
+
+                        NewEmp.FirstName = rdr["FirstName"].ToString();
+                        NewEmp.LastName = rdr["LastName"].ToString();
+                        NewEmp.Position = rdr["Position"].ToString();
+                        NewEmp.Salary = rdr.IsDBNull(4) ? 0 : decimal.Parse(rdr["Salary"].ToString());
+                        if (!rdr.IsDBNull(5))
+                        {
+                            NewEmp.TerminationDate = DateTime.Parse(rdr["TerminationDate"].ToString());
+                        }
+                        Employees.Add(NewEmp);
+                    }
+                }
+            }
+
+		]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

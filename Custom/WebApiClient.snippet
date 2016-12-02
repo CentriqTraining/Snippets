@@ -1,0 +1,29 @@
+﻿<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>AspNet.WebApi.Client</Title>
+			<Shortcut>WebapiClient</Shortcut>
+			<Description>Code snippet for how to use AspNet.WebApi.Client</Description>
+			<Author>Mike Rissen</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+                        <Declarations>
+                          <Literal>
+                           <ID>url</ID>
+                           <ToolTip>Url for this resource</ToolTip>
+                           <Default>api/employees</Default>
+                          </Literal>
+                        </Declarations>
+			<Code Language="csharp">
+        <![CDATA[HttpResponseMessage response = client.GetAsync("$url$").Result;
+                 if (response.IsSuccessStatusCode)
+                 {
+                    var employees = response.Content.ReadAsAsync<IEnumerable<Employee>>().Result;
+                 }]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

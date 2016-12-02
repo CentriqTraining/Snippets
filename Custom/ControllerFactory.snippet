@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Controller Factory</Title>
+			<Shortcut>ControllerFactory</Shortcut>
+			<Description>Code snippet to create a Controller Factory Class</Description>
+			<Author>Microsoft Corporation</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>name</ID>
+					<ToolTip>Validator Name</ToolTip>
+					<Default>DefaultEmployeeValidator</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[
+    public class ControllerFactory : IControllerFactory
+    {
+        public IController CreateController(RequestContext requestContext, string controllerName)
+        {
+            //  Go get the current assembly
+            Assembly asm = typeof(WebApplication3.MvcApplication).Assembly;
+
+            Type ChosenType = null;
+
+            // Go through each TYPE in this assembly
+            foreach (var item in asm.GetTypes())
+            {
+                //  If the name of that type equals the controllerName passed in
+                var comp = string.Compare(item.Name, controllerName, false);
+                if (comp == 0)
+                {
+                    // Make sure this classname inherits from Controller
+                    if (item.BaseType.Name == "Controller")
+                    {
+                        ChosenType = item;
+                        break;
+                    }
+                }
+            }
+
+            //  Create a new instance of it
+            return (IController)Activator.CreateInstance(ChosenType);
+        }
+
+        public SessionStateBehavior GetControllerSessionBehavior(RequestContext requestContext, string controllerName)
+        {
+            return SessionStateBehavior.Default;
+        }
+
+        public void ReleaseController(IController controller)
+        {
+            
+        }
+    }
+			]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

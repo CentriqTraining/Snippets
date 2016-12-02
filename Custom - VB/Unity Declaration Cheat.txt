@@ -1,0 +1,17 @@
+<configSections>
+     <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration" />
+</configSections>
+
+<unity xmlns="http://schemas.microsoft.com/practices/2010/unity" >
+    <!--  A namespace for where my validators live so Unity can find them -->
+    <namespace name="BusinessObjects.Validators" />
+    <!--  A namespace for where my Employee Class lives so Unity can find it -->
+    <namespace name=" BusinessObjects.Entities" />
+
+    <!--  The name of the assembly that ALL of it is contained in -->
+    <assembly name="BusinessObjects" />
+	
+    <container>
+        <register type="Validator[Employee]" mapTo="DefaultEmployeeValidator" />
+    </container>
+</unity>
