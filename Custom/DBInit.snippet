@@ -27,7 +27,7 @@
 
 public class $name$: CreateDatabaseIfNotExists<$context$>
 {
-    protected override void Seed(HrDataContext context)
+    protected override void Seed($context$ context)
     {
         context.Employees.AddRange(new List<Employee>()
         {
