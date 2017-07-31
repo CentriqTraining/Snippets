@@ -18,7 +18,8 @@
                           </Literal>
                         </Declarations>
 			<Code Language="csharp">
-        <![CDATA[HttpResponseMessage response = client.GetAsync("$url$").Result;
+        <![CDATA[
+HttpResponseMessage response = client.GetAsync("$url$").Result;
                  if (response.IsSuccessStatusCode)
                  {
                     var employees = response.Content.ReadAsAsync<IEnumerable<Employee>>().Result;

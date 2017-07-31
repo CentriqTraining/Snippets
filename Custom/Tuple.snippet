@@ -1,0 +1,31 @@
+﻿<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Tuple</Title>
+			<Shortcut>tuple</Shortcut>
+			<Description>Visual Studio 2017 tuple example</Description>
+			<Author>Mike Rissen</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="csharp">
+        <![CDATA[
+        public static (decimal sum, decimal dif, decimal prod, decimal quot) AllOps(int x, int y)
+        {
+            return (x + (decimal)y, x - (decimal)y, x * (decimal)y, x / (decimal)y);
+
+            //  Calls
+            //    Normal Call
+            //    var x = AllOps(7, 5);
+
+            //    Deconstruction
+            //    (var sum, var dif, var prod, var quot) = AllOps(7, 5);
+        }
+
+	]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

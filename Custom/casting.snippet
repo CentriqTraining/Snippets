@@ -1,0 +1,70 @@
+﻿<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>casting</Title>
+			<Shortcut>casting</Shortcut>
+			<Description>Code snippet for showing casting</Description>
+			<Author>Mike Rissen</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="csharp">
+        <![CDATA[
+
+            //  ToString() Method==========================
+            int a = 456;
+            string a_AsString = a.ToString();
+
+            //  Casting====================================
+            //  implicit casting
+            int b = int.MaxValue;
+            long c = b;  //  no casting required
+
+            //  explicit casting
+            // This would most assuredly fit in an int
+            long d = int.MaxValue; 
+
+            //  but the implicit cast doesn't work
+            //  explicit casting is required
+            int e = d;
+
+            //  casting with the as keyword================
+            object f = "Hello there";
+            string g = f as string;
+
+            //  casting with the convert class=============
+            string age = "49";
+            int age_AsInt = Convert.ToInt32(age);
+
+            //  casting with the parse method==============
+            string age2 = "49";
+            int AlsoAge_AsInt = int.Parse(age2);
+
+            string today = "02/31/2017";
+            DateTime today_As_Date = DateTime.Parse(today);
+
+            //  casting with the tryparse method===========
+            string age3 = "Noneya";
+            int Age_As_Int_Again;
+
+            if (int.TryParse(age3, out Age_As_Int_Again))
+            {
+
+            }
+
+            //  VS 2017 ONLY
+            string age4 = "NoneYa";
+            if (int.TryParse(age4, out int Age_As_Int_Yet_Again))
+            {
+
+            }
+
+            
+       ]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
