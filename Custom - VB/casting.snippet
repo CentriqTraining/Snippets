@@ -1,0 +1,65 @@
+﻿<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>casting</Title>
+			<Shortcut>casting</Shortcut>
+			<Description>Code snippet for showing casting</Description>
+			<Author>Mike Rissen</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="vb">
+        <![CDATA[
+        '  ToString() Method==========================
+        Dim a As Integer = 456
+        Dim a_AsString As String = a.ToString()
+
+        '  Casting====================================
+        '  implicit casting
+        Dim b As Integer = Integer.MaxValue
+        Dim c As Long = b  '  no casting required
+
+        '  explicit casting=============
+        '  This would most assuredly fit in an int
+        Dim d As Long = Integer.MaxValue
+
+        '  This would be a syntax error in C#
+        '  VB is very forgiving, at the expense of a 
+        '  slight increase in runtime errors
+        '  CInt, CDbl, CDec, CLong, C??? are avail
+        '  But you can see in 2017 it recommends not using them
+        Dim e As Integer = d
+        Dim e2 As Integer = CInt(d)
+
+        '  But it is recommended with other types================
+        Dim f As Object = "Hello there"
+        Dim g As String = CStr(f)
+
+        '  casting with the convert class=============
+        Dim age As String = "49"
+        Dim age_AsInt As Integer = Convert.ToInt32(age)
+
+        '  casting with the parse method==============
+        Dim age2 As String = "49"
+        Dim AlsoAge_AsInt As Integer = Integer.Parse(age2)
+
+        Dim Today As String = "02/31/2017"
+        Dim today_As_Date As DateTime = DateTime.Parse(Today)
+
+        '  casting with the tryparse method===========
+        Dim age3 As String = "Noneya"
+        Dim Age_As_Int_Again As Integer
+
+        If Integer.TryParse(age3, Age_As_Int_Again) Then
+
+        End If
+
+            
+       ]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

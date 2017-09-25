@@ -1,0 +1,25 @@
+﻿<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>optional</Title>
+			<Shortcut>optional</Shortcut>
+			<Description>Code snippet for optional parameter example</Description>
+			<Author>Mike Rissen</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="VB">
+        <![CDATA[
+    Public Sub WriteLogEntry(fileName As String,
+          Optional headerText As String = "===========================\r\n--- Header",
+          Optional footerText As String = "===========================\r\n--- Footer")
+    End Sub
+
+]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
