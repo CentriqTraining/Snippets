@@ -1,0 +1,52 @@
+﻿<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Strings</Title>
+			<Shortcut>strings</Shortcut>
+			<Description>Code snippet for String methods demonstration</Description>
+			<Author>Mike Rissen</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="csharp">
+        <![CDATA[
+            var str = "The quick brown fox jumped over the lazy dog.";
+            var substr = str.Substring(4, 5);
+            var foxy = str.Contains("fox");
+            var StartsWithThe = str.StartsWith("The", StringComparison.CurrentCultureIgnoreCase);
+
+            //  Left, Right, Full Trimmed
+            var txt = "   some text   ";
+
+            // split
+            var list = "milk,eggs,sugar,flour,tortillas,salsa";
+
+            //  Equals
+            var x = "Hello";
+            var y = x;
+            var equals = x.Equals(y);
+
+            var a = new Employee() { Name = "Mike Rissen" };
+            var b = new Employee() { Name = "Mike Rissen" };
+            var c = a.Equals(b);
+
+            //  Format
+            var temp = 216;
+            var variance = 2.262m;
+            var device = "Server1";
+
+            var msg = "The average temperature on " + device
+                + " was " + temp + " with a variance of "
+                + variance;
+
+            // New
+            var testLastName = new string('X', 36);
+
+        }]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
