@@ -1,0 +1,37 @@
+﻿<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Guitar example</Title>
+			<Shortcut>guitars</Shortcut>
+			<Description>Creates a seed method for Buymoria when enable-migrations is enabled</Description>
+			<Author>Mike Rissen</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Language="csharp">
+        <![CDATA[
+            List<Guitar> _Guitars;
+            _Guitars = new List<Guitar>()
+            {
+                new Guitar() { ID=1, Maker="Gibson", Name="Les Paul Standard", StringCount = 7 },
+                new Guitar() { ID=1, Maker="Gretch", Name="G6120", Artist="Brian Setzer", StringCount = 6 },
+                new Guitar() { ID=1, Maker="Ibanez", Name="JEM7", Artist="Steve Vai", StringCount=7 },
+                new Guitar() { ID=1, Maker="Ibanez", Name="JS2410", Artist = "Joe Satriani", StringCount = 6 },
+                new Guitar() { ID=1, Maker="Ibanez", Name="RG", StringCount=6 },
+                new Guitar() { ID=1, Maker="Parker", Name="Fly Mojo Flame" },
+                new Guitar() { ID=1, Maker="Fender", Name="American Stratocaster", StringCount=6 },
+                new Guitar() { ID=1, Maker="Fender", Name="Stratocaster HSH", StringCount=6 },
+                new Guitar() { ID=1, Maker="Fender", Name="Stratocaster HHH", StringCount = 6 },
+                new Guitar() { ID=1, Maker="Fender", Name="Stratocaster HSS", StringCount = 6 },
+                new Guitar() { ID=1, Maker="Fender", Name="Stratocaster",Artist ="Jimi Hendrix", StringCount = 6 },
+                new Guitar() { ID=1, Maker="Fender", Name="Telecaster", StringCount = 6 },
+                new Guitar() { ID=1, Maker="Fender", Name="Stratocaster", Artist = "Stevie Ray Vaughan", StringCount = 6 }
+            };
+
+            ]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
