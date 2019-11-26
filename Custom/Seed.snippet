@@ -2,8 +2,8 @@
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>Database Init</Title>
-			<Shortcut>DBInit</Shortcut>
+			<Title>Database Init Seed Method</Title>
+			<Shortcut>seed</Shortcut>
 			<Description>Code snippet for EF Database Initializer</Description>
 			<Author>Microsoft Corporation</Author>
 			<SnippetTypes>
@@ -11,24 +11,8 @@
 			</SnippetTypes>
 		</Header>
 		<Snippet>
-			<Declarations>
-				<Literal>
-					<ID>name</ID>
-					<ToolTip>Class name</ToolTip>
-					<Default>DBInit</Default>
-				</Literal>
-				<Literal>
-					<ID>context</ID>
-					<ToolTip>EF context class</ToolTip>
-					<Default>HRDataContext</Default>
-				</Literal>
-			</Declarations>
 			<Code Language="csharp"><![CDATA[ 
 
-public class $name$: CreateDatabaseIfNotExists<$context$>
-{
-    protected override void Seed($context$ context)
-    {
         context.Employees.AddRange(new List<Employee>()
         {
             new Employee() { FirstName = "Michael", LastName = "Tucker", Salary = 18.00M, Position = "Manager" },
@@ -59,10 +43,7 @@ public class $name$: CreateDatabaseIfNotExists<$context$>
             new Employee() { FirstName = "Leticia", LastName = "Williams", Salary = 8.00M, Position = "Green Shirt", TerminationDate = DateTime.Parse("1/31/2010") },
             new Employee() { FirstName = "Sarah", LastName = "Yang", Salary = 8.00M, Position = "Green Shirt", TerminationDate = DateTime.Parse("1/31/2010") }
         });
-		context.SaveChanges();
-        base.Seed(context);
-    }
-}
+	context.SaveChanges();
 			   ]]>
 			</Code>
 		</Snippet>

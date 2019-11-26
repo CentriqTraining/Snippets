@@ -12,8 +12,10 @@
 		</Header>
 		<Snippet>
 			<Code Language="csharp"><![CDATA[
-       public class IoCManager 
+    public class IoCManager
     {
+        //  install package unity
+        //  install package unity.configuration
         private IUnityContainer _Ioc;
 
         private static IoCManager _Instance;
@@ -28,23 +30,14 @@
                 return _Instance;
             }
         }
-
-        private IoCManager() 
+        private IoCManager()
         {
-                try
+            try
             {
                 //  This creates a new unitycontainer object 
                 //  It does all the injection work for us
                 _Ioc = new UnityContainer();
-
-                //  Load the app.config section titled "unity"
-                UnityConfigurationSection section =
-                    (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
-                
-                //  Point that section to the new container and 
-                //  Tell it to add all dependancies found in the config
-                //  INto the UnityContainer
-                section.Configure(_Ioc);
+                _Ioc.LoadConfiguration("Default");
             }
             catch (Exception ex)
             {
@@ -52,13 +45,13 @@
             }
 
         }
-  
-      public T FetchDependency<T>()
+        public T FetchDependency<T>()
         {
             //  Calls on Unity to find the right class based on config
             return _Ioc.Resolve<T>();
         }
     }
+
 			]]>
 			</Code>
 		</Snippet>
